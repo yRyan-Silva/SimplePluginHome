@@ -1,4 +1,5 @@
 A simple home plugin with database, particles and cooldown.
+Minecraft Version: 1.21
 
 Just configure the plugin via 'config.yml' and use it according to your preference.
 

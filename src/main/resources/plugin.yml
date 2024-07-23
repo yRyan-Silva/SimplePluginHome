@@ -1,0 +1,16 @@
+name: SimplePluginHome
+version: 1.0-SNAPSHOT
+author: ylupan
+main: me.ryan.simplepluginhome.SimplePluginHome
+api-version: 1.21
+commands:
+  home:
+    aliases:
+      - base
+  sethome:
+    aliases:
+      - addhome
+  delhome:
+    aliases:
+      - removehome
+  homeadmin:

@@ -1,0 +1,37 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'io.freefair.lombok' version '8.6'
+    id 'java'
+}
+
+group = 'me.ryan.simplepluginhome'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.21-R0.1-SNAPSHOT'
+    compileOnly 'org.jetbrains:annotations:24.1.0'
+
+    implementation 'com.zaxxer:HikariCP:5.0.1'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.7'
+
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'org.slf4j:slf4j-simple:1.7.36'
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+}
+
+shadowJar {
+    archiveFileName = 'SimplePluginHome.jar'
+}
+
+tasks.build {
+    dependsOn shadowJar
+}

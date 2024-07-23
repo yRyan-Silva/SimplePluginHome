@@ -1,0 +1,29 @@
+Database:
+  # Tipos: MARIADB (RECOMENDADO), MYSQL, SQLITE
+  Type: SQLITE
+  User: 'root'
+  Password: ''
+  Ip: 'localhost'
+  Port: 3306
+  Database: 'test'
+  # Aqui você poderá configurar algumas coisas do HikariCP.
+  # Por padrão, já são dadas algumas configurações com base na documentação do hikari:
+  # https://github.com/brettwooldridge/HikariCP/wiki/MySQL-Configuration
+  Properties:
+    cachePrepStmts: true
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    useServerPrepStmts: true
+    useLocalSessionState: true
+    rewriteBatchedStatements: true
+    cacheResultSetMetadata: true
+    cacheServerConfiguration: true
+    elideSetAutoCommits: true
+    maintainTimeStats: false
+
+Config:
+  Cooldown: 5 # Tempo que o player devera esperar para dar /home novamente em segundos
+  Particles:
+    Activated: true
+    Type: 'PORTAL' # https://minecraft.fandom.com/wiki/Particles#Types_of_particles
+    Amount: 50

@@ -15,7 +15,7 @@ public class Config {
 
     private Particle particleType;
 
-    private int particleAmount;
+    private int particleAmount, defaultHomeLimit;
 
     private long cooldownMillis;
 
@@ -28,6 +28,7 @@ public class Config {
     private void loadConfig() {
         FileConfiguration config = plugin.getConfig();
 
+        defaultHomeLimit = config.getInt("Config.Default Home Limit");
         particlesActivated = config.getBoolean("Config.Particles.Activated");
         particleType = Particle.valueOf(config.getString("Config.Particles.Type"));
         particleAmount = config.getInt("Config.Particles.Amount");

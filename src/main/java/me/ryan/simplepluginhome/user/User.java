@@ -24,6 +24,10 @@ public class User {
         this.homes = new HashMap<>();
     }
 
+    public int getHomeAmount() {
+        return this.homes.size();
+    }
+
     public boolean isHome(@NotNull String name) {
         return this.homes.containsKey(name.toLowerCase(Locale.ROOT));
     }

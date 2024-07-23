@@ -14,6 +14,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 public class CommandHome implements CommandExecutor {
 
     private final UserDelayService userDelayService;
@@ -33,6 +35,11 @@ public class CommandHome implements CommandExecutor {
             return false;
         }
 
+        if (!s.hasPermission("simplepluginhome.home")) {
+            s.sendMessage("§cVocê não possui permissão para executar este comando.");
+            return false;
+        }
+
         if (a.length == 0) {
             s.sendMessage("§cSintaxe errada utilize, /" + label + " (home)");
             return false;
@@ -43,6 +50,7 @@ public class CommandHome implements CommandExecutor {
 
         if (!user.isHome(home)) {
             s.sendMessage("§cVocê não possui uma home com este nome.");
+            s.sendMessage("§cHomes disponíveis: " + Arrays.toString(user.getHomes().values().toArray(new String[0])));
             return false;
         }
 

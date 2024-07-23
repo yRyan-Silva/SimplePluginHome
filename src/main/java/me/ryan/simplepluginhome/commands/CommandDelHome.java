@@ -24,6 +24,11 @@ public class CommandDelHome implements CommandExecutor {
             return false;
         }
 
+        if (!s.hasPermission("simplepluginhome.delhome")) {
+            s.sendMessage("§cVocê não possui permissão para executar este comando.");
+            return false;
+        }
+
         if (a.length == 0) {
             s.sendMessage("§cSintaxe errada utilize, /" + label + " (home)");
             return false;

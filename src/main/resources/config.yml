@@ -23,6 +23,7 @@ Database:
 
 Config:
   Cooldown: 5 # Tempo que o player devera esperar para dar /home novamente em segundos
+  Default Home Limit: 1
   Particles:
     Activated: true
     Type: 'PORTAL' # https://minecraft.fandom.com/wiki/Particles#Types_of_particles

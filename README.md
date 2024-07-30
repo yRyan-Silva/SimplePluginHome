@@ -1,4 +1,6 @@
-A simple home plugin with database, particles and cooldown.
+A simple home plugin with database (MySQL/MariaDB/SQLite), particles and cooldown.<br>
+Server Version: Spigot 1.21 <br> <br>
+<a href="https://github.com/yRyan-Silva/SimplePluginHome/releases">Download plugin</a>
 
 Just configure the plugin via 'config.yml' and use it according to your preference.
 

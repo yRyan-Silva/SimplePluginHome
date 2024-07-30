@@ -101,13 +101,13 @@ public class Storage {
     public CompletableFuture<User> get(String primaryKey) {
         return Async.run(() -> {
             try (Connection connection = connectionFactory.getConnection();
-                 PreparedStatement statementFarmCactus = connection.prepareStatement(select)) {
+                 PreparedStatement statement = connection.prepareStatement(select)) {
 
-                statementFarmCactus.setString(1, primaryKey);
-                ResultSet resultFarmCactus = statementFarmCactus.executeQuery();
+                statement.setString(1, primaryKey);
+                ResultSet resultSet = statement.executeQuery();
 
-                if (resultFarmCactus.next())
-                    return gson.fromJson(resultFarmCactus.getString("json"), User.class);
+                if (resultSet.next())
+                    return gson.fromJson(resultSet.getString("json"), User.class);
             } catch (SQLException exception) {
                 throw new RuntimeException(exception);
             }
@@ -118,10 +118,10 @@ public class Storage {
     public CompletableFuture<List<User>> getAll() {
         return Async.run(() -> {
             try (Connection connection = connectionFactory.getConnection();
-                 PreparedStatement statementFarmCactus = connection.prepareStatement(selectAll)) {
+                 PreparedStatement statement = connection.prepareStatement(selectAll)) {
                 List<User> list = new ArrayList<>();
 
-                ResultSet resultSet = statementFarmCactus.executeQuery();
+                ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
                     String json = resultSet.getString("json");
